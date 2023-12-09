@@ -228,4 +228,16 @@ footer {
             flex: 0 1 20%;
         }
     }
+
+    #success {
+        & main {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            padding: 40px;
+        }
+        .btn {
+            margin-bottom: 0;
+        }
+    }
 }
