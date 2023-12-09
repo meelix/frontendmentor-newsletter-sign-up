@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --white: #fff;
+    --gray: #19182B7f;
+    --pale-navy: #36384D;
+    --dark-navy: #242742;
+    --vermellion: #FF6155;
+
+    --gradient-1: linear-gradient(204deg, #FF6A3A 0%, #FF527B 100%);
+}
+
+* {
+    box-sizing: border-box;
+    &:focus {
+        outline: 2px solid var(--vermellion);
+        border-color: transparent;
+    }
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body {
+    background: var(--pale-navy);
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+
+    font-family: Roboto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    filter: drop-shadow(0 4px 4px #0007) drop-shadow(0 15px 60px #0003);
+    background-color: var(--white);
+    color: var(--dark-navy);
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: min-content;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 100%;
+    /* margin: 0 0 30px 0; */
+    margin: 0 0 24px 0;
+}
+
+ul {
+    list-style: none;
+    padding-left: 35px;
+}
+li {
+    position: relative;
+    margin: 12px 0;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+li::before {
+    content: '';
+    background: url("./assets/images/icon-list.svg") no-repeat center center/100% 100%;
+    display: inline-block;
+    width: 21px;
+    padding-top: 3px;
+    position: absolute;
+    left: calc(-35px);
+    aspect-ratio: 1/1;
+}
+
+p {
+    margin: 0 0 24px 0;
+    line-height: 150%;
+}
+
+form {
+    display: grid;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    font-size: 16px;
+    margin-top: 40px;
+
+    & label {
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    & input {
+        height: 56px;
+        border-radius: 8px;
+        border: 1px solid var(--grey-25, rgba(25, 24, 43, 0.25));
+        margin-bottom: 24px;
+        padding: 0 24px;
+
+        font-family: Roboto;
+        font: inherit;
+    }
+}
+
+button, .btn {
+    border-radius: 8px;
+    background: var(--Dark-Navy, #242742);
+    height: 56px;
+    border: none;
+    font: inherit;
+    font-weight: 700;
+    color: var(--white);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    &:hover, &:focus-visible {
+        text-decoration: none;
+        background: var(--gradient-1);
+        cursor: pointer;
+        box-shadow: 0px 16px 32px 0px rgba(255, 97, 85, 0.50);
+    }
+}
+
+#signup {
+    & main > div {
+        padding: 24px;
+    }
+    & main > img {
+        display: block;
+        border-radius: 0 0 14px;
+    }
+}
+
+#success {
+    & main {
+        padding: 150px 24px 0;
+        place-items: start;
+    }
+    & h1:before {
+        content: '';
+        background: url("./assets/images/icon-success.svg") left top/100% 100% no-repeat;
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 40px;
+    }
+
+    & .btn {
+        place-self: end ceter;
+        margin-bottom: 40px;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 5px;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    & a {
+        color: var(--vermellion);
+    }
+}
+
+@media (min-width: 500px) {
+    main {
+        max-width: 480px;
+        height: auto;
+        border-radius: 24px;
+    }
+    #signup {
+        & main > img {
+            border-radius: 24px;
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    main {
+        max-width: 928px;
+        height: auto;
+        border-radius: 36px;
+        grid-auto-flow: column;
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 24px;
+    }
+
+    h1 {
+        font-size: 56px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%; /* 56px */
+    }
+
+    #signup {
+        & main > div {
+            padding: 0 56px 0 40px;
+        }
+        & main > img {
+            border-radius: 16px;
+            height: 100%;
+            width: auto;
+            flex: 0 1 20%;
+        }
+    }
+}
